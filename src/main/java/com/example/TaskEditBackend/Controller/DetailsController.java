@@ -3,6 +3,7 @@ package com.example.TaskEditBackend.Controller;
 
 import com.example.TaskEditBackend.Dao.EditDao;
 import com.example.TaskEditBackend.Model.Details;
+import com.example.TaskEditBackend.Service.TaskServiceImplimentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,21 +15,21 @@ public class DetailsController {
 
     @Autowired
     private EditDao edao;
+    @Autowired
+    private TaskServiceImplimentation taskServiceImplimentation;
 
     @CrossOrigin(origins = "*")
-    @PutMapping(path = "/editDetails",consumes = "application/json", produces = "application/json")
+    @PutMapping(path = "/.",consumes = "application/json", produces = "application/json")
     public HashMap<String,String> EditDetails(@RequestBody Details dls)
     {
-        edao.editDetails(dls.getId(), dls.getName(), dls.getDescriptions(),dls.getTickdata(),dls.isTick());
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("status","success");
-        return hashMap;
+
+        return taskServiceImplimentation.EditDetails(dls);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/viewAll")
-    public List<Details> ViewAll(){
-        return (List<Details>) edao.findAll();
+    public List<Details> viewAll(){
+        return taskServiceImplimentation.viewAll();
     }
 
 
@@ -36,6 +37,6 @@ public class DetailsController {
    @PostMapping(value = "/getbyid",consumes = "application/json",produces = "application/json")
      public List<Details> getDetails(@RequestBody Details dls)
        {
-          return (List<Details>) edao.Getbyid(dls.getId());
+          return taskServiceImplimentation.getDetails(dls);
       }
 }
