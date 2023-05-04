@@ -1,5 +1,6 @@
 package com.example.TaskEditBackend.Service;
 
+import com.example.TaskEditBackend.Dto.DetailsDto;
 import com.example.TaskEditBackend.Model.Details;
 import org.springframework.web.bind.annotation.RequestBody;
 
