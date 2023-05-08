@@ -19,9 +19,9 @@ public class TaskServiceImplimentation implements TaskService{
         return (List<Details>) edao.findAll();
     }
     @Override
-    public List<Details> getDetails(Details dls)
+    public List<Details> getDetails(int id)
     {
-        return (List<Details>) edao.Getbyid(dls.getId());
+        return (List<Details>) edao.Getbyid(id);
     }
 
     @Override

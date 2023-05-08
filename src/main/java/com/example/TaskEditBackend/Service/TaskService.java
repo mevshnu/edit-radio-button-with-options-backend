@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface TaskService {
     public List<Details> viewAll();
-    public List<Details> getDetails(Details dls);
+    public List<Details> getDetails(int id);
     public HashMap<String,String> EditDetails( Details dls);
 }

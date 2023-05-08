@@ -36,14 +36,12 @@ public class DetailsController {
         return new ListDto(detailsLists);
     }
 
-
    @CrossOrigin(origins = "*")
-   @PostMapping(value = "/getbyid",consumes = "application/json",produces = "application/json")
-     public ListDto getDetails(@RequestBody DetailsDto dls)
+   @GetMapping(value = "/getbyid/{id}",produces = "application/json")
+     public ListDto getDetails(@PathVariable int id)
        {
-          Details details = new Details(dls.getId(), dls.getName(), dls.getDescriptions(), dls.isTick(), dls.getTickdata());
-          List<Details> detaileLists=taskServiceImplimentation.getDetails(details);
+//          Details details = new Details(id.getId(), id.getName(), dls.getDescriptions(), dls.isTick(), dls.getTickdata());
+          List<Details> detaileLists=taskServiceImplimentation.getDetails(id);
           return new ListDto(detaileLists);
-
       }
 }
