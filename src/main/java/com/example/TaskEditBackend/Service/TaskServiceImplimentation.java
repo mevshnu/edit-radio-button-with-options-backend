@@ -21,11 +21,11 @@ public class TaskServiceImplimentation implements TaskService{
     @Override
     public List<Details> getDetails(int id)
     {
-        return (List<Details>) edao.Getbyid(id);
+        return  edao.Getbyid(id);
     }
 
     @Override
-    public HashMap<String, String> EditDetails(Details dls) {
+    public HashMap<String, String> editDetails(DetailsDto dls) {
         edao.editDetails(dls.getId(), dls.getName(), dls.getDescriptions(),dls.getTickdata(),dls.isTick());
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("status","success");

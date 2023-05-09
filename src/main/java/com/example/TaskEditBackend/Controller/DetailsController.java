@@ -24,8 +24,7 @@ public class DetailsController {
     @PutMapping(path = "/editDetails",consumes = "application/json", produces = "application/json")
     public HashMap<String,String> EditDetails(@RequestBody DetailsDto dls)
     {
-        Details details =new Details(dls.getId(), dls.getName(), dls.getDescriptions(), dls.isTick(), dls.getTickdata());
-        return taskServiceImplimentation.EditDetails(details);
+        return taskServiceImplimentation.editDetails(dls);
     }
 
     @CrossOrigin(origins = "*")
@@ -40,7 +39,6 @@ public class DetailsController {
    @GetMapping(value = "/getbyid/{id}",produces = "application/json")
      public ListDto getDetails(@PathVariable int id)
        {
-//          Details details = new Details(id.getId(), id.getName(), dls.getDescriptions(), dls.isTick(), dls.getTickdata());
           List<Details> detaileLists=taskServiceImplimentation.getDetails(id);
           return new ListDto(detaileLists);
       }

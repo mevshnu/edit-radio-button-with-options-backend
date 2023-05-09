@@ -10,5 +10,5 @@ import java.util.List;
 public interface TaskService {
     public List<Details> viewAll();
     public List<Details> getDetails(int id);
-    public HashMap<String,String> EditDetails( Details dls);
+    public HashMap<String,String> editDetails( DetailsDto dls);
 }
